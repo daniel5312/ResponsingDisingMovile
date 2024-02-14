@@ -1,0 +1,476 @@
+/*
+1-Posicionamiento --> static, absolute, relative, fixed.
+2-Modelo de caja (Box model) --> margin, border, padding, content.
+3-Tipografía --> tipos, tamaños de fuente, etc.
+4-Estilos visuales --> box-shadow, border-radius, gradient, etc.
+5-Otros --> misceláneos, reglas CSS y más*/
+
+/*ecordemos que para declarar una variable en CSS debemos usar la función :root y añadir un nombre a la 
+variable que contendrá el valor que vamos a usar repetidas veces en nuestro código. 
+Seleccionando todos los colores, tendríamos:*/
+/*Ahora, vas a crear los estilos base y variables que usaremos en todo nuestro proyecto.
+
+Cómo hacer el posicionamiento de contenido
+Como parte de las buenas prácticas tenemos un orden en que es recomendable escribir el código dentro de CSS. 
+Te ayudarán a tener todas las secciones organizadas y saber dónde regresar cuando necesites hacer un cambio o solucionar un problema.
+
+Posicionamiento --> static, absolute, relative, fixed.
+
+Modelo de caja (Box model) --> margin, border, padding, content.
+
+Tipografía --> tipos, tamaños de fuente, etc.
+
+Estilos visuales --> box-shadow, border-radius, gradient, etc.
+
+Otros --> misceláneos, reglas CSS y más.
+
+Cómo crear variables
+En la sección de Branding del diseño en Figma podemos ver todos los colores que se usan. Por ahora, 
+las variables que vamos a crear van a ser de estos colores.
+crear variables en figma
+
+Al hacer clic sobre el ícono de ajuste de cada color, se abre la información sobre 
+el mismo. Ahí tenemos el código hexadecimal que necesitamos.
+image.png
+
+Recordemos que para declarar una variable en CSS debemos usar la función :root y añadir un nombre a la 
+variable que contendrá el valor que vamos a usar repetidas veces en nuestro código. Seleccionando todos los colores, tendríamos:*/
+
+/*estilos base del proyecto*/
+:root {
+    /*colores*/
+    --Linear-BG: (linear-gradient(208deg, #201E1C 16.69%, #F7931A 100%));
+    --bitcoin-orange: #f7931a;
+    --soft-orange: #ffe9d5;
+    --secondary-blue: #1a9af7;
+    --soft-blue: #e7f5ff;
+    --warm-black: #282623;
+    --black: #201e1c;
+    --grey: #bababa;
+    --off-white: #faf8f7;
+    --just-white: #fff;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5;/*este es para cambiar las medidas de px a rem 1rem son 16px 
+    ejemplo si la medida es de 2.4 rem. quiere decir que son 24px.*/
+    font-family: 'DM Sans', sans-serif;
+}
+
+header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-width: 324px;
+    height: 334px;
+    text-align: center;
+    background: linear-gradient(208deg, #201E1C 16.69%, #F7931A 100%);
+}
+header img {
+    width: 150px;
+    height: 24px;
+    margin-top: 30px;
+    align-self: center;
+}
+.header--title-container {
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px;
+    height: 218px;
+    margin-top: 40;
+    text-align: center;
+    align-self: center;
+}
+.header--title-container h1 {
+    margin-top: 25px;
+    font-size: 1.5rem;/*este me cambia el tamaño del elemento*/
+    font-weight: bold;/*este es el estilo de la letra*/
+    line-height: 1.4rem;/*este es para quitarle espacio entre letras */
+    color: var(--just-white);
+} 
+.header--title-container p {
+    margin-top: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;/*este nos da espacios entre lineas del texto es decir los renglones*/
+    color: var(--soft-orange);
+} 
+.header--title-container .header--button {
+    position: absolute;
+    top: 270px;
+    left: calc(50% - 118px);
+    display: block;
+    margin-top: 35px;
+    padding: 15px;
+    width: 249px;
+    height: 58px;
+    background-color: var(--off-white);
+    /*sombra*/
+    box-shadow: opx 4px 8px rbga(89, 73, 30, 0, 16);/*este me permite agregar sombra ami bottom*/
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--black);
+}   
+.header--button span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    background-image: url("./assets/icons/mdi-keyboard-arrow-down.svg");
+    
+}
+main {
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+    background-color: var(--off-white);
+}
+.main-exchange-container {
+    width: 100%;
+    height: auto;
+    padding-top: 80px;
+    text-align: center;
+    background-color: #eeecec;
+}
+.main-exchange-container .backgroundImg {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;/*para centrar a los lados dejar el mismo medida de margen a lado y lado*/
+    margin-bottom: 50px;/*dejar espacio abajo con el titulo H2*/
+    background-image: url("./assets/imgs/bitcoin.svg");
+    background-size: cover;/*este nos asegura que la imagen no se nos deforme y nos de bisibilidad de la imagen siempre en el centro*/
+    background-position: center;/*este es para asegurara siempre tengamos la imagen visible en el centro
+    y  no se nos deforme*/
+    background-repeat: no-repeat;/*este es para que la imagen no se rompa sie el contenedor es mas pequeño que la imagen la imagen se replica
+    para poderce vilsibilizar en tonces no que remos que se nos replique.*/
+}
+.main-exchange-container--title {
+    width: 90%;
+    min-width: 288px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.main-exchange-container h2 {
+    margin-bottom: 30px;
+    font-size: 2.4rem;/**tamaño de la fuente**/
+    font-weight: bold;/*estilos un peso de la fuente*/
+    line-height: 2.6rem;/*esta es la altura de la fuente*/
+    color: var(--black);
+}
+.main-exchange-container p {
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    margin: auto;
+    color: #757575;
+}
+.main-currency-table {
+   width: 70%;
+   min-width: 235px; 
+   max-width: 500px;
+   height: 360px;
+   margin: 0 auto;
+   font-family: "Inter", sans-serif;
+}
+.main-currency-table .currency-table--title {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    color: var(--bitcoin-orange);
+}
+.currency-table--container {
+    width: 90%;
+    min-width: 230px;
+    max-width: 300px;
+    height: 250px;
+    margin: 0 auto;/**este quiere decir que de arriba a abajo le agregamos 0 de margen 
+    y auto osea centrado a los lados*/
+}
+.currency-table--container table {
+    width: 100%;
+    height: 100%;
+}
+.currency-table--container td {/*este es para dar estilos alas letras de adentro de la tabla*/
+    width: 50%;  
+    font-size: 1.6rem;/**tamaño de la fuente**/
+    font-weight: 500;/*estilos un peso o ancho de la fuente*/
+    line-height: 1.9rem;/*este es el espacio entre lineas de texto o renglon y entre oracion*/
+    color: var(--grey);
+    background-color: var(--just-white);
+}
+
+/*estos son para poner estilos alas casillas especificamente el border radius de las esquinas*/
+.currency-table--container .table__top-left {
+    border-radius: 15px 0 0 0; 
+}
+.currency-table--container .table__top-right {
+    border-radius: 0 15px 0 0;
+}
+.currency-table--container .table__bottom-left {
+    border-radius: 0 0 0 15px;
+}
+.currency-table--container .table__bottom-right {
+    border-radius: 0 0 15px 0;
+}
+
+/*este es para dar estilo ala tabla solo del lado derecho de la tabla*/
+.currency-table--container .table__right {
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+.currency-table--container .down {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url("./assets/icons/trending-down.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.currency-table--container .up {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url("./assets/icons/trending-up.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.currency-table--date{
+    width: 190px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 15px;
+    padding: 8px;
+    background: var(--Soft-Orange, #FFE9D4);
+    border-radius: 8px;
+}
+.currency-table--date p {
+    font-size: 12px;
+    line-height: 1.5rem;
+    color: var(--warm-black);
+}
+/*tabla de comisiones*/
+.main-commission-table {
+    width: 70%;
+    min-width: 235px; 
+    max-width: 500px;
+    height: 360px;
+    font-family: "Inter", sans-serif;
+    margin: 0 auto;
+
+}
+.main-commission-table .commission-table--title {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    line-height: 2.3rem;
+    line-height: 2.3rem;
+    color: var(--secondary-blue);
+}
+.commission-table--container {
+   width: 90%;
+   min-width: 230px; 
+  
+   max-width: 300px; 
+   height: 250px;
+   margin: 0 auto;
+}
+.commission-table--container table {
+    width: 100%;
+    height: 100%;
+}  
+.commission-table--container td {
+    width: 70%;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.9rem;
+    color: var(--grey);
+   
+}
+.commission-table--container .table__top-left {
+    border-radius: 15px 0 0 0; 
+}
+.commission-table--container  .table__top-right {
+    border-radius: 0 15px 0 0;
+}
+.commission-table--container .table__bottom-left {
+    border-radius: 0 0 0 15px;
+}
+.commission-table--container .table__bottom-right {
+    border-radius: 0 0 15px 0;
+}
+.commission-table--container .table__right {
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.7rem;
+    color: #757575;
+}
+.commission-table--date{
+    width: 190px;
+    height: 30px;
+    margin: 0;
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 8px;
+    background:  var(--Soft-Blue, #E7F5FF);
+}
+.commission-table--date p {
+    font-size: 12px;
+    line-height: 1.5rem;
+    color: var(--warm-black);
+}
+
+/*estils de la seccion de productos y beneficios*/
+.main-product-detail {
+    position: relative;
+    width: 100%;
+    min-width: 320px;
+    margin-top: 40px;
+    height: auto;
+    padding: 20px 10px;
+    background-color: var(--black);
+    
+}
+.product-detail--batata-logo {
+    position: absolute;
+    height: 24px;
+    width: 40px;
+    top: -10px;
+    left: calc(50% - 20px);
+    background-image: url("./assets/icons/batata3.svg");
+}
+.product-detail--title {
+    width: 90%; 
+    min-width: 288px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+} 
+.product-detail--title h2 {
+    margin-bottom: 20px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
+.product-detail--title p {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    line-height: 1.8rem;
+    color: #808080;
+}
+
+/*Estilos de las cars o los popob*/
+.product-detail--card {
+    background-color: var(--warm-black);
+    width: 90%;
+    min-width: 288px;
+    max-width: 400px;
+    height: 175px;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);/*este es para darle una sombra ala caja y resalte en relieve*/
+}
+.product-detail--card .clock {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url("./assets/icons/clock1.svg");
+    margin-bottom: 10px;
+    background-size: cover;/*este es para ajustarlo a que ocupe toda la caja*/
+    background-position: center;
+    background-repeat: no-repeat;/*este es para que no se me repita la imagen*/
+}
+.product--card-title {
+    color: var(--just-white);
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.8rem;
+
+}
+.product--card-body {
+    font-size: 1rem;
+    font-weight: 500;/*no es bold por que no es encabezado*/
+    line-height: 1.2rem;/*este es el espacio entre lineas de texto o renglon*/
+    color: #808080;
+}
+/*estilos 2 card*/
+.product-detail--card2 {
+    background-color: var(--warm-black);
+    width: 90%;
+    min-width: 288px;
+    max-width: 400px;
+    height: 175px;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.16);/*este es para darle una sombra ala caja y resalte en relieve*/
+}
+
+.product-detail--card2 .eye {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url("./assets/icons/eye1.svg");
+    margin-bottom: 5px;
+    background-size: cover;/*este es para ajustarlo a que ocupe toda la caja*/
+    background-position: center;
+    background-repeat: no-repeat;/*este es para que no se me repita la imagen*/
+}
+.product--card-title2 {
+    color: var(--just-white);
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1rem;
+}
+.product--card-body2 {
+    font-size: 1rem;
+    font-weight: 400;/*no es bold por que no es encabezado*/
+    line-height: 1rem;/*este es el espacio entre lineas de texto o renglon*/
+    color: #808080;
+}
+
+.product-detail--card2 .dollarSign {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url("./assets/icons/dollarsign1.svg");
+    margin-bottom: 5px;
+    background-size: cover;/*este es para ajustarlo a que ocupe toda la caja*/
+    background-position: center;
+    background-repeat: no-repeat;/
+}
+
+.product-detail--card2 .check {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-image: url("./assets/icons/checkcircle1.svg");
+    margin-bottom: 5px;
+    background-size: cover;/*este es para ajustarlo a que ocupe toda la caja*/
+    background-position: center;
+    background-repeat: no-repeat;/
+}
+
