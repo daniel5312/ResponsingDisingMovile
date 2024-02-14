@@ -385,7 +385,8 @@ main {
     width: 90%;
     min-width: 288px;
     max-width: 400px;
-    height: 175px;
+    min-height: 175px;/*este min-height es para arreglar de una forma mas simple el  desbordamiento del
+    texto de las tarjetas diferente al que yo hise pero tambien se vale*/
     margin: 15px auto;
     padding: 15px;
     border-radius: 5px;
