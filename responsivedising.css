@@ -474,4 +474,22 @@ main {
     background-position: center;
     background-repeat: no-repeat;/
 }
-
+.bitcoin-img-containers {
+    width: 100%; 
+    min-width: 320;
+    height: 50vh; 
+    background-image: url("/assets/imgs/bitcoinbaby.png");/*en figma podemos acomodar el tamaño de la imagen 
+    para que no se nos pixele cuando no la tengamos en movile sino en desktop*/
+    background-position: center;/*este es para centrar el fondo */
+    background-size: cover;/*La imagen de fondo se acomoda en todo el espacio del contenedor, lo cual podría estirar o recortar un poco la imagen*/
+    background-repeat: no-repeat;/*este es para que la imagen no se me repita si el conteedor es mas grande*/
+}
+.bitcoin-img-containers h2 {
+    position: absolute;
+    left: 35px;
+    padding-top: 70px;
+    font-size: 2.4rem;
+    font-weight: bold;
+    line-height: 2.6rem;
+    color: var(--just-white);
+}
